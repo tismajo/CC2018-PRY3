@@ -1,0 +1,10 @@
+^C:\USERS\MARIA\DOCUMENTS\DOCUMENTOS UVG\GPC\CC2018-PRY3\TARGET\DEBUG\BUILD\RAYLIB-SYS-7038513F60FF0D98\OUT\BUILD\CMAKEFILES\D5E8DDD5A882A00E3B31A15DBD4902F2\INSTALL_FORCE.RULE
+setlocal
+cd .
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

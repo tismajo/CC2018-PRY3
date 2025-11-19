@@ -1,0 +1,1 @@
+C:\Users\maria\Documents\Documentos UVG\GPC\CC2018-PRY3\target\debug\build\raylib-sys-7038513f60ff0d98\out\build\raylib\external\glfw\src\glfw.dir\Debug\glfw.lib

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\maria\Documents\Documentos UVG\GPC\CC2018-PRY3\target\debug\build\raylib-sys-7038513f60ff0d98\out\build\CMakeFiles\d5e8ddd5a882a00e3b31a15dbd4902f2\RUN_TESTS_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{77253128-26EA-3933-B990-D0271A6D3CAF}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
