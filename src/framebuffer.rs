@@ -13,7 +13,7 @@ pub struct Framebuffer {
 impl Framebuffer {
     /// Crea un nuevo framebuffer con un Z-buffer inicializado
     pub fn new(width: u32, height: u32, background_color: Color) -> Self {
-        let color_buffer = Image::gen_image_color(width as i32, height as i32, background_color);
+        let color_buffer = Image::gen_image_color(width as i32, height as i32, Color::new(5, 5, 15, 255)); // Azul muy oscuro
         let z_buffer = vec![f32::INFINITY; (width * height) as usize];
         
         Self {
@@ -21,7 +21,7 @@ impl Framebuffer {
             height,
             color_buffer,
             z_buffer,
-            background_color,
+            background_color: Color::new(5, 5, 15, 255),
             current_color: Color::WHITE,
             texture: None,
         }
