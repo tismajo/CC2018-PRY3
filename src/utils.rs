@@ -7,6 +7,7 @@ pub trait Vector3Ext {
     fn cross(&self, other: Vector3) -> Vector3;
     fn dot(&self, other: Vector3) -> f32;
     fn transform(&self, matrix: &Matrix) -> Vector3;
+    fn scale_by(&self, scalar: f32) -> Vector3;
 }
 
 impl Vector3Ext for Vector3 {
@@ -42,11 +43,15 @@ impl Vector3Ext for Vector3 {
             self.x * matrix.m2 + self.y * matrix.m6 + self.z * matrix.m10 + matrix.m14,
         )
     }
+
+    fn scale_by(&self, scalar: f32) -> Vector3 {
+        Vector3::new(self.x * scalar, self.y * scalar, self.z * scalar)
+    }
 }
 
-// Extensión para Matrix con rotate_y
 pub trait MatrixExt {
     fn rotate_y(angle: f32) -> Matrix;
+    fn rotate(axis: Vector3, angle: f32) -> Matrix;
 }
 
 impl MatrixExt for Matrix {
@@ -59,6 +64,23 @@ impl MatrixExt for Matrix {
             m4: 0.0,        m5: 1.0, m6: 0.0,        m7: 0.0,
             m8: sin_angle,  m9: 0.0, m10: cos_angle, m11: 0.0,
             m12: 0.0,       m13: 0.0, m14: 0.0,       m15: 1.0,
+        }
+    }
+
+    fn rotate(axis: Vector3, angle: f32) -> Matrix {
+        let c = angle.cos();
+        let s = angle.sin();
+        let t = 1.0 - c;
+        
+        let x = axis.x;
+        let y = axis.y;
+        let z = axis.z;
+        
+        Matrix {
+            m0: t * x * x + c,      m1: t * x * y + s * z,  m2: t * x * z - s * y,  m3: 0.0,
+            m4: t * x * y - s * z,  m5: t * y * y + c,      m6: t * y * z + s * x,  m7: 0.0,
+            m8: t * x * z + s * y,  m9: t * y * z - s * x,  m10: t * z * z + c,     m11: 0.0,
+            m12: 0.0,               m13: 0.0,               m14: 0.0,               m15: 1.0,
         }
     }
 }

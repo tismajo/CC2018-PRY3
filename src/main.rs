@@ -45,37 +45,42 @@ fn main() {
     let mut current_target_index = usize::MAX;
 
     window.set_target_fps(60);
+    window.hide_cursor(); // Ocultar cursor para mejor control de cámara
 
     println!("\n=== CONTROLES DEL SISTEMA SOLAR ===");
-    println!("WASD: Movimiento de cámara");
+    println!("WASD: Movimiento de cámara libre");
     println!("Q/E: Subir/Bajar cámara");
-    println!("Click derecho + mouse: Rotar cámara");
+    println!("Click derecho + mouse: Rotar cámara (arriba/abajo/izquierda/derecha)");
     println!("R/F: Acelerar/Desacelerar tiempo");
     println!("T: Mostrar/ocultar órbitas");
     println!("O: Mostrar/ocultar UI");
-    println!("1-9: Teletransporte a cuerpo celeste");
+    println!("1-9: Teletransporte a cuerpo celeste (la cámara seguirá al planeta)");
     println!("ESPACIO: Modo libre de cámara");
     println!("ESC: Salir");
 
     while !window.window_should_close() {
         let delta_time = window.get_frame_time();
         
+        // Actualizar sistema solar
         solar_system.update(delta_time * time_scale);
         skybox.update(delta_time);
         
+        // Manejar entrada
         handle_input(&window, &mut camera, &mut time_scale, &mut show_orbits, 
                     &mut show_ui, &mut current_target_index, &solar_system);
 
+        // Actualizar seguimiento de cámara si está siguiendo un cuerpo
         if current_target_index < solar_system.bodies.len() {
             let body = &solar_system.bodies[current_target_index];
             camera.update_following(body.position);
         }
 
+        // Renderizar
         fb.clear();
-
         skybox.render(&mut fb, &camera);
         solar_system.render(&mut fb, &camera, show_orbits);
 
+        // Actualizar textura
         if fb.texture.is_none() {
             fb.init_texture(&mut window, &thread);
         }
@@ -127,6 +132,7 @@ fn handle_input(
     
     camera.handle_input(window, delta_time);
 
+    // Control de escala de tiempo
     if window.is_key_down(KeyboardKey::KEY_R) {
         *time_scale = (*time_scale * 1.1).min(10.0);
     }
@@ -134,6 +140,7 @@ fn handle_input(
         *time_scale = (*time_scale / 1.1).max(0.1);
     }
 
+    // Teletransporte a cuerpos celestes (1-9)
     for key in [KeyboardKey::KEY_ONE, KeyboardKey::KEY_TWO, KeyboardKey::KEY_THREE, 
                 KeyboardKey::KEY_FOUR, KeyboardKey::KEY_FIVE, KeyboardKey::KEY_SIX,
                 KeyboardKey::KEY_SEVEN, KeyboardKey::KEY_EIGHT, KeyboardKey::KEY_NINE] {
@@ -141,24 +148,36 @@ fn handle_input(
             let index = (key as i32 - KeyboardKey::KEY_ONE as i32) as usize;
             if index < solar_system.bodies.len() {
                 let body = &solar_system.bodies[index];
-                let offset_distance = if index == 0 { 15.0 } else { 8.0 };
+                let offset_distance = if index == 0 { 
+                    20.0 // Más distancia para el sol
+                } else { 
+                    8.0 + body.scale * 2.0 // Distancia proporcional al tamaño
+                };
+                
                 camera.warp_to(body.position, offset_distance);
                 *current_target_index = index;
+                println!("Teletransportado a: {}", body.name);
             }
         }
     }
 
+    // Modo libre
     if window.is_key_pressed(KeyboardKey::KEY_SPACE) {
         camera.set_free_mode();
         *current_target_index = usize::MAX;
+        println!("Modo cámara libre activado");
     }
 
+    // Toggle órbitas
     if window.is_key_pressed(KeyboardKey::KEY_T) {
         *show_orbits = !*show_orbits;
+        println!("Órbitas: {}", if *show_orbits { "ON" } else { "OFF" });
     }
 
+    // Toggle UI
     if window.is_key_pressed(KeyboardKey::KEY_O) {
         *show_ui = !*show_ui;
+        println!("UI: {}", if *show_ui { "ON" } else { "OFF" });
     }
 }
 
@@ -172,8 +191,9 @@ fn draw_ui(
 ) {
     let width = d.get_screen_width();
     
-    d.draw_rectangle(10, 10, 300, 200, Color::new(0, 0, 0, 180));
-    d.draw_rectangle_lines(10, 10, 300, 200, Color::WHITE);
+    // Panel principal de información
+    d.draw_rectangle(10, 10, 350, 220, Color::new(0, 0, 0, 180));
+    d.draw_rectangle_lines(10, 10, 350, 220, Color::WHITE);
     
     d.draw_text("SISTEMA SOLAR NEBULARIS", 20, 20, 18, Color::YELLOW);
     d.draw_text(&format!("Tiempo: {:.1}x", time_scale), 20, 50, 16, Color::WHITE);
@@ -182,15 +202,22 @@ fn draw_ui(
     d.draw_text(&format!("Modo: {}", if camera.free_mode { "LIBRE" } else { "SEGUIMIENTO" }), 20, 110, 16, 
                 if camera.free_mode { Color::GREEN } else { Color::BLUE });
     
+    // Información del cuerpo seguido
     if current_target_index < solar_system.bodies.len() {
         let body = &solar_system.bodies[current_target_index];
         d.draw_text(&format!("Observando: {}", body.name), 20, 130, 16, Color::GREEN);
+        d.draw_text(&format!("Distancia al sol: {:.1} u", body.orbit_radius), 20, 150, 14, Color::LIGHTGRAY);
+        d.draw_text(&format!("Velocidad orbital: {:.2}", body.orbit_speed), 20, 170, 14, Color::LIGHTGRAY);
+    } else {
+        d.draw_text("Cámara en modo libre", 20, 130, 16, Color::GREEN);
     }
 
+    // Panel de controles inferior
     d.draw_rectangle(10, 750, width - 20, 40, Color::new(0, 0, 0, 180));
-    d.draw_text("WASD: Mover | Q/E: Altura | R/F: Tiempo | 1-9: Teletransporte | ESPACIO: Libre | T: Órbitas | O: UI", 
+    d.draw_text("WASD: Mover | Q/E: Altura | Click derecho + Mouse: Rotar | R/F: Tiempo | 1-9: Teletransporte | ESPACIO: Libre | T: Órbitas | O: UI", 
                 20, 760, 14, Color::LIGHTGRAY);
 
+    // Panel de cuerpos celestes
     let mut y_pos = 10;
     d.draw_rectangle(width - 310, 10, 300, 200, Color::new(0, 0, 0, 180));
     d.draw_rectangle_lines(width - 310, 10, 300, 200, Color::WHITE);
