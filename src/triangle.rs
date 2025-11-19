@@ -100,3 +100,18 @@ fn project(v: &Vector3, width: f32, height: f32, scale: f32) -> Vector2 {
     let y = height / 2.0 - v.y * scale * fov * height / 2.0;
     Vector2::new(x, y)
 }
+
+pub fn draw_orbit_line(framebuffer: &mut Framebuffer, points: &[Vector2]) {
+    if points.len() < 2 {
+        return;
+    }
+
+    for i in 0..points.len() - 1 {
+        crate::line::line(framebuffer, points[i], points[i + 1]);
+    }
+    
+    // Conectar el último punto con el primero para cerrar la órbita
+    if points.len() > 2 {
+        crate::line::line(framebuffer, points[points.len() - 1], points[0]);
+    }
+}

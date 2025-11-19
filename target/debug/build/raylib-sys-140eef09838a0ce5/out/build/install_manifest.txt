@@ -1,0 +1,7 @@
+C:/Users/maria/Documents/Documentos UVG/GPC/CC2018-PRY3/target/debug/build/raylib-sys-140eef09838a0ce5/out/lib/raylib.lib
+C:/Users/maria/Documents/Documentos UVG/GPC/CC2018-PRY3/target/debug/build/raylib-sys-140eef09838a0ce5/out/include/raylib.h
+C:/Users/maria/Documents/Documentos UVG/GPC/CC2018-PRY3/target/debug/build/raylib-sys-140eef09838a0ce5/out/include/rlgl.h
+C:/Users/maria/Documents/Documentos UVG/GPC/CC2018-PRY3/target/debug/build/raylib-sys-140eef09838a0ce5/out/include/raymath.h
+C:/Users/maria/Documents/Documentos UVG/GPC/CC2018-PRY3/target/debug/build/raylib-sys-140eef09838a0ce5/out/lib/pkgconfig/raylib.pc
+C:/Users/maria/Documents/Documentos UVG/GPC/CC2018-PRY3/target/debug/build/raylib-sys-140eef09838a0ce5/out/lib/cmake/raylib/raylib-config-version.cmake
+C:/Users/maria/Documents/Documentos UVG/GPC/CC2018-PRY3/target/debug/build/raylib-sys-140eef09838a0ce5/out/lib/cmake/raylib/raylib-config.cmake

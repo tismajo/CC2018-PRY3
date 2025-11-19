@@ -1,0 +1,10 @@
+{
+	"InstallScripts" : 
+	[
+		"C:/Users/maria/Documents/Documentos UVG/GPC/CC2018-PRY3/target/debug/build/raylib-sys-140eef09838a0ce5/out/build/cmake_install.cmake",
+		"C:/Users/maria/Documents/Documentos UVG/GPC/CC2018-PRY3/target/debug/build/raylib-sys-140eef09838a0ce5/out/build/raylib/cmake_install.cmake",
+		"C:/Users/maria/Documents/Documentos UVG/GPC/CC2018-PRY3/target/debug/build/raylib-sys-140eef09838a0ce5/out/build/raylib/external/glfw/cmake_install.cmake",
+		"C:/Users/maria/Documents/Documentos UVG/GPC/CC2018-PRY3/target/debug/build/raylib-sys-140eef09838a0ce5/out/build/raylib/external/glfw/src/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

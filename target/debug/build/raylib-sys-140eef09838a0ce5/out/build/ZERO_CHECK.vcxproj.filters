@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\maria\Documents\Documentos UVG\GPC\CC2018-PRY3\target\debug\build\raylib-sys-140eef09838a0ce5\out\build\CMakeFiles\f2a4a809a0c3e59f0ea8d61ed0222598\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{ACBCCCE1-B6D4-304A-9CA9-1717CC2EAD2D}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

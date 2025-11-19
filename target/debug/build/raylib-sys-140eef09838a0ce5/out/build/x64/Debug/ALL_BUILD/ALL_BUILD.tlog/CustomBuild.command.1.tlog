@@ -1,0 +1,10 @@
+^C:\USERS\MARIA\.CARGO\REGISTRY\SRC\INDEX.CRATES.IO-1949CF8C6B5B557F\RAYLIB-SYS-5.5.1\RAYLIB\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/maria/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/raylib-sys-5.5.1/raylib "-BC:/Users/maria/Documents/Documentos UVG/GPC/CC2018-PRY3/target/debug/build/raylib-sys-140eef09838a0ce5/out/build" --check-stamp-file "C:/Users/maria/Documents/Documentos UVG/GPC/CC2018-PRY3/target/debug/build/raylib-sys-140eef09838a0ce5/out/build/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

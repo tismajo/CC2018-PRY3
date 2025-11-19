@@ -1,0 +1,14 @@
+C:\Users\maria\Documents\Documentos UVG\GPC\CC2018-PRY3\target\release\deps\thiserror-eaeb661b8a690b3a.d: C:\Users\maria\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\thiserror-2.0.17\src\lib.rs C:\Users\maria\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\thiserror-2.0.17\src\aserror.rs C:\Users\maria\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\thiserror-2.0.17\src\display.rs C:\Users\maria\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\thiserror-2.0.17\src\var.rs C:\Users\maria\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\thiserror-2.0.17\src\private.rs C:\Users\maria\Documents\Documentos\ UVG\GPC\CC2018-PRY3\target\release\build\thiserror-7785109c320b2068\out/private.rs
+
+C:\Users\maria\Documents\Documentos UVG\GPC\CC2018-PRY3\target\release\deps\libthiserror-eaeb661b8a690b3a.rlib: C:\Users\maria\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\thiserror-2.0.17\src\lib.rs C:\Users\maria\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\thiserror-2.0.17\src\aserror.rs C:\Users\maria\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\thiserror-2.0.17\src\display.rs C:\Users\maria\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\thiserror-2.0.17\src\var.rs C:\Users\maria\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\thiserror-2.0.17\src\private.rs C:\Users\maria\Documents\Documentos\ UVG\GPC\CC2018-PRY3\target\release\build\thiserror-7785109c320b2068\out/private.rs
+
+C:\Users\maria\Documents\Documentos UVG\GPC\CC2018-PRY3\target\release\deps\libthiserror-eaeb661b8a690b3a.rmeta: C:\Users\maria\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\thiserror-2.0.17\src\lib.rs C:\Users\maria\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\thiserror-2.0.17\src\aserror.rs C:\Users\maria\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\thiserror-2.0.17\src\display.rs C:\Users\maria\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\thiserror-2.0.17\src\var.rs C:\Users\maria\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\thiserror-2.0.17\src\private.rs C:\Users\maria\Documents\Documentos\ UVG\GPC\CC2018-PRY3\target\release\build\thiserror-7785109c320b2068\out/private.rs
+
+C:\Users\maria\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\thiserror-2.0.17\src\lib.rs:
+C:\Users\maria\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\thiserror-2.0.17\src\aserror.rs:
+C:\Users\maria\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\thiserror-2.0.17\src\display.rs:
+C:\Users\maria\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\thiserror-2.0.17\src\var.rs:
+C:\Users\maria\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\thiserror-2.0.17\src\private.rs:
+C:\Users\maria\Documents\Documentos\ UVG\GPC\CC2018-PRY3\target\release\build\thiserror-7785109c320b2068\out/private.rs:
+
+# env-dep:OUT_DIR=C:\\Users\\maria\\Documents\\Documentos UVG\\GPC\\CC2018-PRY3\\target\\release\\build\\thiserror-7785109c320b2068\\out
